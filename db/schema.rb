@@ -11,13 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140531194726) do
+ActiveRecord::Schema.define(version: 20140602183859) do
+
+  create_table "groups", force: true do |t|
+    t.integer  "group_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "posts", force: true do |t|
+    t.string   "poster_name"
+    t.text     "body"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id",    limit: 255
   end
+
+  add_index "users", ["user_id"], name: "index_users_on_user_id"
 
 end

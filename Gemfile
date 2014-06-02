@@ -38,3 +38,5 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Added by me to run on work winblows
+gem 'tzinfo-data'
